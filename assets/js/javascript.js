@@ -16,7 +16,7 @@ $(document).ready(function () {
    $("#15 .description").val(localStorage.getItem("15"));
    $("#16 .description").val(localStorage.getItem("16"));
    $("#17 .description").val(localStorage.getItem("17"));
-   
+
    // Taking class that is click on to execute a function.
    $(".saveBtn").on("click", function () {
       // this actually grab what the user types in 
@@ -25,7 +25,19 @@ $(document).ready(function () {
       var time = $(this).parent().attr("id");
       // this sets the user date into local storage with a key of time.
       localStorage.setItem(time, userTask);
-   })
+   });
+
+   // this clear out the content of 
+   $(".trashBtn").on("click", function () {
+
+      // this actually grab what the user types in 
+      var userTask = $(this).siblings(".description").val();
+      // this grabs the value of the id
+      var time = $(this).parent().attr("id");
+      // this sets the user date into local storage with a key of time.
+      localStorage.removeItem(time);
+
+   });
 
 
    // this function takes in each time block. and updates the background depending on what time it is.
@@ -47,6 +59,36 @@ $(document).ready(function () {
          }
       })
    }
+
+
+   function keepSchedule() {
+
+      var oldTasks = [];
+      for (var i = 0; i < localStorage.length; i++) {
+
+         var oldValues = localStorage.getItem(localStorage.key(i), localStorage.key([i]));
+         console.log(oldValues);
+         oldTasks.push(oldValues);
+         console.log(oldTasks);
+         var keep = confirm("Do you want to keep the task " + oldTasks[i] + "?")
+         console.log(keep.valueOf());
+         if (keep === false) {
+            alert("This Item will be removed the next time you load the page.");
+            console.log(localStorage.key(i))
+            localStorage.removeItem(localStorage.key(i));
+         }
+      }
+
+   }
+
+   // var words = JSON.parse(localStorage.getItem("words"));
+   // words.push("hello");
+   // localStorage.setItem("words", JSON.stringify(words));
+
+
+
+
    timeUpdater();
+   keepSchedule();
 
 })
