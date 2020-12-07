@@ -29,19 +29,14 @@ $(document).ready(function () {
 
    // this clear out the content of 
    $(".trashBtn").on("click", function () {
-
-      // this actually grab what the user types in 
-      var userTask = $(this).siblings(".description").val();
       // this grabs the value of the id
       var time = $(this).parent().attr("id");
       // this sets the user date into local storage with a key of time.
       localStorage.removeItem(time);
-
    });
 
 
    // this function takes in each time block. and updates the background depending on what time it is.
-
    function timeUpdater() {
       $(".time-block").each(function () {
 
@@ -58,28 +53,44 @@ $(document).ready(function () {
             $(this).children(".description").addClass("future")
          }
       })
-   }
+   };
 
+// Non-working function at the moment.
+   // function keepSchedule() {
+   //    console.log("hello1")
+   //    var oldTasks = [];
+   //    for (var i = 9; i < 18; i++) {
+   //       var keep;
+   //       var timeValue= {
+   //       time:
+   //       value: 
+   // }
+   //       var oldValues = localStorage.getItem(localStorage.key(i));
+         
+   //       console.log(oldValues);
+   //       if (oldValues !== "") {
+            
+   //          oldTasks.push(oldValues);
+   //          console.log("hi");
+   //       } else {
+   //          oldTasks.push("hello");
+            
+   //       }
 
-   function keepSchedule() {
+   //       if (oldValues !== "") {
+   //          console.log("hello")
+   //          keep = confirm("Do you want to keep the task " + oldTasks[i] + "?")
+   //       }
 
-      var oldTasks = [];
-      for (var i = 0; i < localStorage.length; i++) {
+   //       if (keep === false) {
+   //          alert("This Item will be removed the next time you load the page.");
+   //          console.log(localStorage.key(i))
+   //          localStorage.removeItem(localStorage.key(i));
+   //          localStorage.setItem(localStorage.key(i), "")
+   //       }
+   //    }
 
-         var oldValues = localStorage.getItem(localStorage.key(i), localStorage.key([i]));
-         console.log(oldValues);
-         oldTasks.push(oldValues);
-         console.log(oldTasks);
-         var keep = confirm("Do you want to keep the task " + oldTasks[i] + "?")
-         console.log(keep.valueOf());
-         if (keep === false) {
-            alert("This Item will be removed the next time you load the page.");
-            console.log(localStorage.key(i))
-            localStorage.removeItem(localStorage.key(i));
-         }
-      }
-
-   }
+   // };
 
    // var words = JSON.parse(localStorage.getItem("words"));
    // words.push("hello");
@@ -89,6 +100,6 @@ $(document).ready(function () {
 
 
    timeUpdater();
-   keepSchedule();
+   // keepSchedule();
 
 })

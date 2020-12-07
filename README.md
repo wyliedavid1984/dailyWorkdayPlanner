@@ -1,8 +1,12 @@
-# dailyWorkdayPlanner
+# DailyWorkdayPlanner
 
 ## Description
 
-We were asked to put together a daily work scheduler for a busy employee.  We were told to use Jquery to put the application together. It will be able to tell you what the current hour and date is. For easy of use and readability is color coded.  There are three different colors to differentiate between past(gray), present(red), and future(green). It is only intended to be used for a regular work day from the hours of 9am to 5pm.  The user is able to input data in to a specified hour block save it for later use. The application makes use local storage, so that the user can come back to the page whenever and still see what tasks are on the schedule. There is a delete button added incase they have finished that task the next time they are redirected to the page it deletes all tasks for that specific time block.
+We were asked to put together a daily work scheduler for a busy employee.  We were told to use Jquery to put the application together. It will be able to tell you what the current hour and date is. For easy of use and readability is color coded.  There are three different colors to differentiate between past(gray), present(red), and future(green). It is only intended to be used for a regular work day from the hours of 9am to 5pm.  The user is able to input data in to a specified hour block save it for later use. The application makes use local storage, so that the user can come back to the page whenever and still see what tasks are on the schedule. There is a delete button added incase they have finished that task. The next time they are redirected to the page it deletes all tasks for that specific time block.
+
+## Deployed Website
+
+* [Daily Work Planner](https://wyliedavid1984.github.io/dailyWorkdayPlanner/.)
 
 ## Javascript
 <details>
@@ -26,10 +30,6 @@ The delete button uses the exact functionality of the save button.  The only dif
 ### Time Updater function
 This function is used to keep our planner in realtime.  It starts by using a forEach in Jquery notation (.each). It will take any element with a class of time-block and run the following function on it. First thing I do is declare a variable of blockHour.  It is set to an integer(using parseInt) of this specific time-block's id.  After that variable is declared, The function moves into IF statement.  The IF checks if the local variable(time of the time-block) is less than the global variable(the current time). If it is true then we will add a style-class to the child element with the class of description. If not it checks our next conditional of if the values are equal, that is true it will remove the class of past and add a class of present.  Lastly if neither of the previous statements are true, it will remove two classes (past, present) and add the class of future.
 
-### Reminder
-
-
-
 </details>
 
 ## HTML
@@ -42,8 +42,9 @@ This function is used to keep our planner in realtime.  It starts by using a for
 
 ![Initial load Screen](./assets/img/loadScreen.png);
 ![The planner with a time stamp in bottom right corner](./assets/img/plannerTime.png);
-![Screen shot of Local Storage Empty](./assets/img/localEmpty.png);
-![Screen shot with data in Local Storage](./assets/img/localData.png)
+![Screenshot of Local Storage Empty](./assets/img/localEmpty.png);
+![Screenshot with data in Local Storage](./assets/img/localData.png);
+![Screenshot with delete button](./assets/img/withDelete.png);
 </details>
 
 ## Credits
@@ -55,3 +56,8 @@ This function is used to keep our planner in realtime.  It starts by using a for
 * [AskBCS]
 * [Moment.js for time](https://momentjs.com/);
 * [JQuery documentation](https://api.jquery.com/);
+
+
+### Redirect to the Repo main page
+
+* [DailyWorkdayPlanner](https://github.com/wyliedavid1984/dailyWorkdayPlanner)
